@@ -1,11 +1,10 @@
-# README
+# LPL Theater App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This CRUD app models a system used by a movie theater to track its showtimes and ticket sales.
 
-Things you may want to cover:
+## Design
 
-* Ruby version
+
 
 * System dependencies
 
@@ -17,8 +16,10 @@ Things you may want to cover:
 
 * How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+## Version Info
+* Rails 5.0.1
+* Ruby 2.3.0 or later
+* SQLite3 for development and test, PostgreSQL for production
 
-* Deployment instructions
-
-* ...
+## Deployment
+Run `bundle install`, then `bundle exec db:create` then `bundle exec db:migrate`.
