@@ -9,6 +9,16 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div id="wrapper">
+      <div id="panel-left"></div>
+  	  <div id="box-left"><%= image_tag('box-left.png', alt: "") %></div>
+  	  <div id="box-right"><%= image_tag('box-right.png', alt: "") %></div>
+  	  <div id="panel-right"></div>
+
+      <div id="popcorn"></div>
+      <div id="content">
+        <%= yield %>
+      </div>
+    </div>
   </body>
 </html>
