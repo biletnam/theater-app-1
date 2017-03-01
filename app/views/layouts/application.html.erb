@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>TheaterApp</title>
+    <title>Popcorn Cinema - Where Everything Is A Little Corny</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,15 +9,22 @@
   </head>
 
   <body>
-    <div id="wrapper">
-      <div id="panel-left"></div>
-  	  <div id="box-left"><%= image_tag('box-left.png', alt: "") %></div>
-  	  <div id="box-right"><%= image_tag('box-right.png', alt: "") %></div>
-  	  <div id="panel-right"></div>
-
-      <div id="popcorn"></div>
+    <div id="container">
       <div id="content">
+
+        <div id="popcorn"></div>
+        <div id="box-top-left"></div>
+        <div id="box-top-right"></div>
+        <div id="box-mid-left"></div>
+        <div id="box-mid-right"></div>
+        <div id="box-bottom-left"></div>
+        <div id="box-bottom-right"></div>
+
+        <% 66.times do %>
+          <div class="cmon">hi</div>
+        <% end %>
         <%= yield %>
+
       </div>
     </div>
   </body>
