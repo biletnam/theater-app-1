@@ -12,5 +12,13 @@ class ShowtimesController < ApplicationController
 			redirect_to :showtimes
 		end 
 	end
+
+
+
+	private
+
+	def showtime_params
+    params.require(:showtime).permit(:time)
+  end
 	
 end

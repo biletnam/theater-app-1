@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-	resources :sales
-	resources :showtimes
+	resources :sales do
+		resources :movies, only: [:index]
+	end
+	resources :movies
 
-	root 'showtimes#index'
+	root 'movies#index'
 end

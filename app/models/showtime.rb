@@ -1,5 +1,6 @@
 class Showtime < ApplicationRecord
-	# t.datetime :time
+	# t.date :date
+	# t.time :time
 	# t.integer :movie_id
 	# t.integer :auditorium_id
 	

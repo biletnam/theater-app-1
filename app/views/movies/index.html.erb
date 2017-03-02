@@ -1,0 +1,14 @@
+<h1>movies#index</h1>
+
+<div>
+	<p>showtimes:</p>
+	<% @movies.each do |movie| %>
+		<ul>
+			<h2><%= movie.title %></h2>
+			<p>Run Time: <%= movie.run_time %></p>
+			<% movie.showtimes.order(:time).each do |showtime| %>
+				<li><%= showtime.time %></li>
+			<% end %>
+		</ul>
+	<% end %>
+</div>
