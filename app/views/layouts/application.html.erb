@@ -1,14 +1,40 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>TheaterApp</title>
+    <title>Popcorn Cinema - Where Everything Is A Little Corny</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Baloo|Pacifico" rel="stylesheet">
+
   </head>
 
   <body>
-    <%= yield %>
+    <div id="logo">
+      <h1>Popcorn Cinema</h1>
+      <h3>Where Everything Is A Little Corny</h3>  
+    </div>
+    <div id="container">
+
+      <div id="frame">
+
+        <div id="popcorn" class="frame-element"></div>
+        <div id="box-top-left" class="frame-element"></div>
+        <div id="box-top-right" class="frame-element"></div>
+        <div id="box-mid-left" class="frame-element"></div>
+        <div id="box-mid-right" class="frame-element"></div>
+        <div id="box-bottom-left" class="frame-element"></div>
+        <div id="box-bottom-right" class="frame-element"></div>
+
+        <div id="content">
+          <% 26.times do %>
+            <div>hi</div>
+          <% end %>
+          <%= yield %>
+        </div>
+
+      </div>
+    </div>
   </body>
 </html>
