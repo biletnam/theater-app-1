@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 	resources :sales
+	resources :showtimes
 
-	root 'sales#index'
+	root 'showtimes#index'
 end
