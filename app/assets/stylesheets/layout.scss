@@ -2,12 +2,17 @@ html {
 	background-color: #881122;
 }
 
-h1 {
+.baloo {
 	font-family: 'Baloo', cursive;
 }
 
-h3 {
+.pacifico {
 	font-family: 'Pacifico', cursive;
+}
+
+h1, h2, h3, h4, li, p {
+	font-family: 'Baloo', cursive;
+	margin: 0px 20px;
 }
 
 #container {
@@ -90,6 +95,6 @@ h3 {
 }
 
 #content {
-	padding-left: 90px;
+	padding: 90px 0 0 90px;
 	font-family: 'Pacifico', cursive;
 }

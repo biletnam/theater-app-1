@@ -1,0 +1,15 @@
+<h1 class="baloo">Currently Playing:</h1>
+
+<div>
+	<% @movies.each do |movie| %>
+		<ul>
+			<h2 class="baloo"><a href="movies/<%= movie.id %>"><%= movie.title %></a></h2>
+			<p>Run Time: <%= movie.run_time %></p>
+			<% movie.unique_showdates.each do |showdate| %>
+				<li class="baloo">
+					<h3><%= showdate.strftime("%a, %b %e") %></h3>
+				</li>
+			<% end %>
+		</ul>
+	<% end %>
+</div>
