@@ -1,1 +1,17 @@
-<h1><%= @showtime.id %> : <%= @showtime.movie_id %> : <%= @showtime.auditorium_id %></h1>
+<h1><%= @movie.title %></h1>
+<h3>Directed by <%= @movie.director %></h3>
+<h3>Run time: <%= @movie.run_time %></h3><br>
+<h3> <em>Synopsis:</em> <%= @movie.synopsis %></h3>
+
+<ul>
+	<% @movie.unique_showdates.each do |showdate| %>
+		<li class="baloo">
+			<h3><%= showdate.strftime("%a, %b %e") %></h3>
+			<ul>
+				<% @movie.showtimes_on_date(showdate).each do |showtime| %>
+					<li><%= showtime.time.strftime("%l:%M %p") %> <%= link_to "Buy Tickets >>", new_movie_sale_path(@movie) %></li>
+				<% end %>
+			</ul>
+		</li>
+	<% end %>
+</ul>

@@ -17,7 +17,3 @@ class Movie < ApplicationRecord
 	end
 	
 end
-
-			# <% movie.showtimes.order(:time).each do |showtime| %>
-			# 	<li><%= showtime.time.strftime("%l:%M %p") %></li>
-			# <% end %>

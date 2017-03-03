@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-	resources :sales do
-		resources :movies, only: [:index]
+
+	resources :movies do
+		resources :sales, only: [:new, :create]
 	end
-	resources :movies
+
+	resources :sales, only: [:index, :destroy, :show]
 
 	root 'movies#index'
 end
