@@ -1,0 +1,5 @@
+<div>
+	<h2> <%= link_to @showtime.movie.title, @showtime.movie %></h2	>
+	<div>Showing in: Auditorium <%= @showtime.auditorium.name %></div>
+	<div>Date: <%= pretty_date(@showtime.date) %> at <%= pretty_time(@showtime.time) %></div>
+</div>

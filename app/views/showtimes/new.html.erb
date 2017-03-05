@@ -1,0 +1,9 @@
+<%= render "/errors" %>
+
+<%= form_for @showtime do |f| %>
+	<%= select "showtime", "movie_id", Movie.all.collect { |movie| [movie.title, movie.id] } %><br>
+	<%= select "showtime", "auditorium_id", Auditorium.all.collect { |auditorium| [auditorium.name, auditorium.id] } %><br>
+	<%= date_select("showtime", "date") %><br>
+	<%= time_select("showtime", "time", ampm: true) %><br>
+	<%= f.submit 'Create' %>
+<% end %>

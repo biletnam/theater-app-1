@@ -1,6 +1,7 @@
 <%= render "/errors" %>
 
-<div>You are purchasing a ticket for the <%= pretty_date(@showtime.date) %>, <%= pretty_time(@showtime.time) %> showing of <%= @showtime.movie.title %>.  The charge will be <%= @showtime.movie.cost %>.  Please provide your information below:
+<div>You are purchasing a ticket for the <%= pretty_date(@showtime.date) %>, <%= pretty_time(@showtime.time) %> showing of <%= @showtime.movie.title %>.</div>
+<div>The charge will be $<%= @showtime.movie.cost %>.  Please provide your information below:</div>
 
 <%= form_for :customer, url: :showtime_sales do |f| %>
 	Name: <br><%= f.text_field :name %><br>
