@@ -9,7 +9,7 @@
 			<h3><%= showdate.strftime("%a, %b %e") %></h3>
 			<ul>
 				<% @movie.showtimes_on_date(showdate).each do |showtime| %>
-					<li><%= showtime.time.strftime("%l:%M %p") %> <%= link_to "Buy Tickets >>", new_movie_sale_path(@movie) %></li>
+					<li><%= showtime.time.strftime("%l:%M %p") %> <%= link_to "Buy Tickets >>", new_showtime_sale_path(showtime) %></li>
 				<% end %>
 			</ul>
 		</li>

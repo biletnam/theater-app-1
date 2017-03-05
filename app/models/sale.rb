@@ -1,5 +1,4 @@
 class Sale < ApplicationRecord
-	# t.decimal :total_bill
 	# t.string :confirmation_no
 	# t.integer :customer_id
 	# t.integer :showtime_id

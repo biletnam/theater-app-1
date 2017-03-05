@@ -20,12 +20,13 @@ ActiveRecord::Schema.define(version: 20170226042054) do
   end
 
   create_table "customers", force: :cascade do |t|
-    t.string   "name"
-    t.string   "email"
-    t.string   "cc_number"
-    t.string   "cc_expiration_date"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.string   "name",                null: false
+    t.string   "email",               null: false
+    t.string   "cc_number",           null: false
+    t.string   "cc_expiration_month", null: false
+    t.string   "cc_expiration_year",  null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
   end
 
   create_table "movies", force: :cascade do |t|
@@ -33,12 +34,12 @@ ActiveRecord::Schema.define(version: 20170226042054) do
     t.string   "director"
     t.string   "synopsis"
     t.string   "run_time"
+    t.decimal  "cost"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "sales", force: :cascade do |t|
-    t.decimal  "total_bill"
     t.string   "confirmation_no"
     t.integer  "customer_id"
     t.integer  "showtime_id"

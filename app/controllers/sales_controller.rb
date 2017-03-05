@@ -5,13 +5,39 @@ class SalesController < ApplicationController
 	end
 
 	def new
-		@sale = Sale.find_by(id: params[:id])
-		if @sale
-			render "show"
+		@showtime = Showtime.find_by(id: params[:showtime_id])
+		if @showtime
+			puts 'here'
+			render "new"
 		else
-			redirect_to :sales
+			redirect_to :root
 		end 
-	end	
+	end
+
+	def create
+		@showtime = Showtime.find_by(id: params[:showtime_id])
+		if @showtime
+			@customer = Customer.new(customer_params)
+			if @customer.save
+				@sale = Sale.new()
+				@sale.showtime = @showtime
+				@sale.customer = @customer
+				if @sale.save
+					redirect_to @sale
+				else
+					@errors = @sale.errors.full_messages
+					render "new"
+				end
+			else
+				@errors = @customer.errors.full_messages
+				render "new"
+			end
+		else
+			@errors = ["Sorry, that showtime is not available."]
+			render "new"
+		end
+
+	end
 
 	def show
 		@sale = Sale.find_by(id: params[:id])
@@ -35,5 +61,9 @@ class SalesController < ApplicationController
 		end
 	end
 
+	private
+	def customer_params
+    params.require(:customer).permit(:name, :email, :cc_number, :cc_expiration_date)
+  end
 
 end

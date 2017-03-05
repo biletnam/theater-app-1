@@ -1,0 +1,11 @@
+<%= render "errors" %>
+
+
+<%= form_for :customer, url: :showtime_sales do |f| %>
+	Name: <br><%= f.text_field :name %><br>
+	Email: <br><%= f.text_field :email %><br>
+	Confirm Email: <br><%= f.text_field :email_confirmation %><br>
+	Credit Card (16 digits): <br><%= f.text_field :cc_number %><br>
+	Expiration Date: (MM / YYYY)<br><%= f.text_field :cc_expiration_month %> / <%= f.text_field :cc_expiration_year %><br>
+	<%= f.submit %>
+<% end %>

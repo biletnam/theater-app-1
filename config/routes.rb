@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-	resources :movies do
+	resources :movies 
+	resources :showtimes do
 		resources :sales, only: [:new, :create]
 	end
 
