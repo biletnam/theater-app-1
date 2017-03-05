@@ -5,6 +5,7 @@ class CreateMovies < ActiveRecord::Migration[5.0]
     	t.string :director
     	t.string :synopsis
     	t.string :run_time
+    	t.decimal :cost
       t.timestamps
     end
   end

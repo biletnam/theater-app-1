@@ -1,1 +1,9 @@
-<h2>sales#show</h2>
+<h1 class="baloo">Thank you for your $<%= @sale.movie.cost %> purchase, <%= @sale.customer.name %>!</h1>
+
+<h3 class="">A ticket has been emailed to <%= @sale.customer.email %></h3>
+
+<div>
+	<div>Film: <%= @sale.movie.title %></div>
+	<div>Showing in: Auditorium <%= @sale.auditorium.name %></div>
+	<div>Date: <%= pretty_date(@sale.showtime.date) %> at <%= pretty_time(@sale.showtime.time) %></div>
+</div>

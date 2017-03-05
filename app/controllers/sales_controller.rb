@@ -5,13 +5,47 @@ class SalesController < ApplicationController
 	end
 
 	def new
-		@sale = Sale.find_by(id: params[:id])
-		if @sale
-			render "show"
+		@showtime = Showtime.find_by(id: params[:showtime_id])
+		if @showtime && @showtime.is_available?
+			render "new"
 		else
-			redirect_to :sales
+			redirect_to :root
 		end 
-	end	
+	end
+
+	def create
+		@showtime = Showtime.find_by(id: params[:showtime_id])
+		if @showtime
+			if @showtime.is_available?
+				@customer = Customer.new(customer_params)
+				if @customer.save
+					@sale = Sale.new(confirmation_no: generate_confirmation_no)
+					@sale.showtime = @showtime
+					@sale.customer = @customer
+					if @sale.save
+						redirect_to @sale
+					else
+						# since sale can't be made
+						@customer.destroy
+						@errors = @sale.errors.full_messages
+						render "new"
+					end
+				else
+					# since customer validations failed
+					@errors = @customer.errors.full_messages
+					render "new"
+				end
+			else
+				# since no available capacity in the auditorium
+				@errors = ["Sorry, but this showtime is sold out."]
+				@movie = @showtime.movie
+				render "movies/show"
+			end
+		else
+			# since the showtime is unavailable 
+			redirect_to :root
+		end
+	end
 
 	def show
 		@sale = Sale.find_by(id: params[:id])
@@ -35,5 +69,18 @@ class SalesController < ApplicationController
 		end
 	end
 
+	private
+	def customer_params
+    params.require(:customer).permit(:name, :email, :email_confirmation, :cc_number, :cc_expiration_month, :cc_expiration_year)
+  end
+
+  def generate_confirmation_no
+		confirmation_no = ""
+		loop do
+			confirmation_no = rand(100000..999999).to_s
+			break unless Sale.where(confirmation_no: confirmation_no).any?
+		end
+		confirmation_no
+  end
 
 end
