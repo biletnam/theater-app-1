@@ -7,4 +7,8 @@ class Sale < ApplicationRecord
 	belongs_to :showtime
 	has_one :auditorium, through: :showtime
 	has_one :movie, through: :showtime
+
+	validates :confirmation_no, presence: true, numericality: true
+	validates :customer_id, presence: true
+	validates :showtime_id, presence: true
 end
