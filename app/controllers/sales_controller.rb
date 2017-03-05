@@ -6,8 +6,7 @@ class SalesController < ApplicationController
 
 	def new
 		@showtime = Showtime.find_by(id: params[:showtime_id])
-		if @showtime
-			puts 'here'
+		if @showtime && @showtime.auditorium.capacity > 0
 			render "new"
 		else
 			redirect_to :root
@@ -17,26 +16,35 @@ class SalesController < ApplicationController
 	def create
 		@showtime = Showtime.find_by(id: params[:showtime_id])
 		if @showtime
-			@customer = Customer.new(customer_params)
-			if @customer.save
-				@sale = Sale.new(confirmation_no: generate_confirmation_no)
-				@sale.showtime = @showtime
-				@sale.customer = @customer
-				if @sale.save
-					redirect_to @sale
+			if @showtime.sales.count < @showtime.auditorium.capacity
+				@customer = Customer.new(customer_params)
+				if @customer.save
+					@sale = Sale.new(confirmation_no: generate_confirmation_no)
+					@sale.showtime = @showtime
+					@sale.customer = @customer
+					if @sale.save
+						redirect_to @sale
+					else
+						# since sale can't be made
+						@customer.destroy
+						@errors = @sale.errors.full_messages
+						render "new"
+					end
 				else
-					@errors = @sale.errors.full_messages
+					# since customer validations failed
+					@errors = @customer.errors.full_messages
 					render "new"
 				end
 			else
-				@errors = @customer.errors.full_messages
-				render "new"
+				# since no available capacity in the auditorium
+				@errors = ["Sorry, but this showtime is sold out."]
+				@movie = @showtime.movie
+				render "movies/show"
 			end
 		else
-			@errors = ["Sorry, that showtime is not available."]
-			render "new"
+			# since the showtime is unavailable 
+			redirect_to :root
 		end
-
 	end
 
 	def show

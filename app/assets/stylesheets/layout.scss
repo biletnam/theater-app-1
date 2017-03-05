@@ -2,6 +2,10 @@ html {
 	background-color: #881122;
 }
 
+* {
+	font-family: 'Baloo', cursive;
+}
+
 .baloo {
 	font-family: 'Baloo', cursive;
 }
@@ -13,6 +17,10 @@ html {
 h1, h2, h3, h4, li, p {
 	font-family: 'Baloo', cursive;
 	margin: 0;
+}
+
+#errors {
+	color: #EFE4B0;
 }
 
 #container {

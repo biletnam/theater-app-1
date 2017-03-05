@@ -10,7 +10,7 @@
 9.times { Movie.create!(title: Faker::Book.title, director: Faker::Name.name, synopsis: Faker::Lorem.sentence, run_time: Faker::Time.between(DateTime.now - 1, DateTime.now).strftime("%lh%Mm"), cost: Faker::Number.decimal(2)) }
 puts "Movies successfully seeded!"
 
-3.times { Auditorium.create!(name: Faker::Lorem.word, capacity: rand(100..300))}
+3.times { Auditorium.create!(name: Faker::Lorem.word.upcase, capacity: rand(100..300))}
 puts "Auditoria successfully seeded!"
 
 
