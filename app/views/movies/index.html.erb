@@ -4,11 +4,11 @@
 	<% @movies.each do |movie| %>
 		<% if movie.showtimes.any? %>
 			<ul>
-				<h2 class="baloo"><a href="movies/<%= movie.id %>"><%= movie.title %></a></h2>
+				<h2><a href="movies/<%= movie.id %>"><%= movie.title %></a></h2>
 				<p>Run Time: <%= movie.run_time %></p>
 				<% movie.unique_showdates.each do |showdate| %>
-					<li class="baloo">
-						<h3><%= showdate.strftime("%a, %b %e") %></h3>
+					<li>
+						<h3><%= pretty_date(showdate) %></h3>
 					</li>
 				<% end %>
 			</ul>

@@ -6,7 +6,7 @@ class SalesController < ApplicationController
 
 	def new
 		@showtime = Showtime.find_by(id: params[:showtime_id])
-		if @showtime && @showtime.auditorium.capacity > 0
+		if @showtime && @showtime.is_available?
 			render "new"
 		else
 			redirect_to :root
@@ -16,7 +16,7 @@ class SalesController < ApplicationController
 	def create
 		@showtime = Showtime.find_by(id: params[:showtime_id])
 		if @showtime
-			if @showtime.sales.count < @showtime.auditorium.capacity
+			if @showtime.is_available?
 				@customer = Customer.new(customer_params)
 				if @customer.save
 					@sale = Sale.new(confirmation_no: generate_confirmation_no)

@@ -5,5 +5,5 @@
 <div>
 	<div>Film: <%= @sale.movie.title %></div>
 	<div>Showing in: Auditorium <%= @sale.auditorium.name %></div>
-	<div>Date: <%= @sale.showtime.date.strftime("%a, %b %e") %> at <%= @sale.showtime.time.strftime("%l:%M %p") %></div>
+	<div>Date: <%= pretty_date(@sale.showtime.date) %> at <%= pretty_time(@sale.showtime.time) %></div>
 </div>

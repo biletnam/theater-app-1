@@ -8,4 +8,9 @@ class Showtime < ApplicationRecord
 
 	belongs_to :movie
 	belongs_to :auditorium
+
+	def is_available?
+		sales.count < auditorium.capacity
+	end
+
 end
