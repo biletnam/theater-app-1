@@ -13,4 +13,18 @@ class Showtime < ApplicationRecord
 		sales.count < auditorium.capacity
 	end
 
+	def revenue_to_date
+		sales.count * movie.cost
+	end
+
+	private
+
+	def compose_date()
+		Date
+	end
+
+	def is_valid_date?
+    errors.add(:happened_at, 'must be a valid datetime') 
+  end
+
 end

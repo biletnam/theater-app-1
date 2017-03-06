@@ -1,0 +1,6 @@
+<%= render 'showtime', locals: { showtime: @showtime } %>
+
+<div>
+	<div>Total Sales: <%= @showtime.sales.count %></div>
+	<div>Total Revenue to Date: $<%= @showtime.revenue_to_date %>
+</div>

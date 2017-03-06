@@ -50,6 +50,7 @@ class SalesController < ApplicationController
 	def show
 		@sale = Sale.find_by(id: params[:id])
 		if @sale
+			@showtime = @sale.showtime
 			render "show"
 		else
 			@errors = @sale.errors.full_messages
