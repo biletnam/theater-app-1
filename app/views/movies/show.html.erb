@@ -1,16 +1,17 @@
 <h1><%= @movie.title %></h1>
 <h3>Directed by <%= @movie.director %></h3>
 <h3>Run time: <%= @movie.run_time %></h3>
-<h3> <em>Synopsis:</em> <%= @movie.synopsis %></h3>
+<h3> <em>Synopsis:</em> <%= @movie.synopsis %></h3><br>
 
 <%= render "/errors" %>
 
+<h2>Showtimes:</h2>
 <ul>
 	<% @movie.unique_showdates.each do |showdate| %>
 		<li class="baloo">
-			<h3><%= pretty_date(showdate) %></h3>
+			<h3><%= pretty_date(showdate.date) %></h3>
 			<ul>
-				<% @movie.showtimes_on_date(showdate).each do |showtime| %>
+				<% @movie.showtimes_on_date(showdate.date).each do |showtime| %>
 					<li><%= pretty_time(showtime.time) %> <%= (showtime.is_available?) ? (link_to "Buy Tickets >>", new_showtime_sale_path(showtime)) : ("Sold Out") %></li>
 				<% end %>
 			</ul>

@@ -10,7 +10,7 @@ class Movie < ApplicationRecord
 	has_many :sales, through: :showtimes
 
 	def unique_showdates
-		showtimes.group(:date).map { |showtime| showtime.date }
+		showtimes.group(:date).map { |showtime| showtime }
 	end
 
 	def showtimes_on_date(date)

@@ -1,4 +1,4 @@
-<h1>Currently Playing:</h1>
+<h1>Showtimes:</h1>
 
 <div>
 	<% @movies.each do |movie| %>
@@ -8,7 +8,7 @@
 				<p>Run Time: <%= movie.run_time %></p>
 				<% movie.unique_showdates.each do |showdate| %>
 					<li>
-						<h3><%= pretty_date(showdate.date) %></h3>
+						<h3><%= pretty_date(showdate.date) %> <%= link_to "Edit", edit_showtime_path(showdate) %> <%= link_to "Delete", showtime_path(showdate), :method => :delete %></h3>
 					</li>
 				<% end %>
 			</ul>
