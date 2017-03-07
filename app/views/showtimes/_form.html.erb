@@ -3,5 +3,5 @@
 	Auditorium: <%= select "showtime", "auditorium_id", @auditoria.collect { |auditorium| [auditorium.name, auditorium.id] } %>
 	Date: <%= date_select("showtime", "date" ) %>
 	Time: <%= time_select("showtime", "time", ampm: true ) %>
-	<%= f.submit %>
+	<%= f.submit, id: "submit_btn" %>
 <% end %>

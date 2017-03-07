@@ -4,5 +4,5 @@
 	<%= label(:movie, :synopsis, "Synopsis:") %><%= f.text_field :synopsis -%>
 	<%= label(:movie, :run_time, "Run Time:") %><%= f.text_field :run_time -%>
 	<%= label(:movie, :cost, "Cost:") %><%= f.text_field :cost -%>
-	<%= f.submit -%>
+	<%= f.submit, id: "submit_btn" -%>
 <% end %>

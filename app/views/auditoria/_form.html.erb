@@ -1,5 +1,5 @@
 <%= form_for @auditorium do |f| %>
 	<%= label(:auditorium, :name, "Name:") %><%= f.text_field :name -%>
 	<%= label(:auditorium, :capacity, "Capacity:") %><%= f.text_field :capacity -%>
-	<%= f.submit -%>
+	<%= f.submit, id: "submit_btn" -%>
 <% end %>

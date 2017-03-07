@@ -9,6 +9,6 @@
 	<%= label(:movie, :email, "Email:") %><%= f.text_field :email %>
 	<%= label(:movie, :email_confirmation, "Confirm Email:") %><%= f.text_field :email_confirmation %>
 	<%= label(:movie, :cc_number, "Credit Card (16 digits):") %><%= f.text_field :cc_number %>
-	<%= label(:movie, :cc_expiration_month, "Expiration Date (MM / YYYY):") %><%= f.text_field :cc_expiration_month %> / <%= f.text_field :cc_expiration_year %>
-	<%= f.submit 'Purchase' %>
+	<%= label(:movie, :cc_expiration_month, "Expiration Date (MM / YYYY):", id: "customer_cc_expiration_month_label") %><%= f.text_field :cc_expiration_month %> / <%= f.text_field :cc_expiration_year %>
+	<%= f.submit 'Purchase', id: "submit_btn" %>
 <% end %>

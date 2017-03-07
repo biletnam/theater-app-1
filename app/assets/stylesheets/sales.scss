@@ -3,11 +3,15 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #customer_cc_expiration_month {
-	display: block;
+	display: inline-block;
 	width: 50px;
 }
 
 #customer_cc_expiration_year {
 	display: inline;
 	width: 50px;
+}
+
+#customer_cc_expiration_month_label {
+	display: block;
 }

@@ -20,7 +20,7 @@ class Movie < ApplicationRecord
 	end
 
 	def showtimes_on_date(date)
-		showtimes.where(date: date)
+		showtimes.where(date: date).order(:date)
 	end
 	
 end
