@@ -1,13 +1,11 @@
 class MoviesController < ApplicationController
 
 	def index
-		puts 'vanilla'
 		@movies = Movie.all
 		@as_admin = false
 	end
 
 	def admin
-		puts 'admin'
 		@movies = Movie.all
 		@auditoria = Auditorium.all
 		@as_admin = true
