@@ -16,7 +16,7 @@ class Movie < ApplicationRecord
 	validates :cost, presence: :true, numericality: { greater_than: 0 }
 
 	def unique_showdates
-		showtimes.group('date(date)').map { |showtime| showtime }
+		showtimes.group('date(date)')
 	end
 
 	def showtimes_on_date(date)
