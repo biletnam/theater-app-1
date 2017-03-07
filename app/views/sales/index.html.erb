@@ -11,8 +11,8 @@
     <th>Delete</th>
   </tr>
 
-	<% @sales.joins(:showtime).order("showtimes.date desc, showtimes.time").each do |sale| %>
-	<tr>
+  <% @sales.joins(:showtime).order("showtimes.date desc, showtimes.time").each do |sale| %>
+  <tr>
     <td><%= link_to sale.confirmation_no, sale %></td>
     <td><%= link_to sale.movie.title, sale.movie %></td>
     <td>$<%= sale.movie.cost %></td>

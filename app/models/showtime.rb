@@ -6,8 +6,8 @@ class Showtime < ApplicationRecord
 	
 	has_many :sales
 
-	belongs_to :movie
-	belongs_to :auditorium
+	belongs_to :movie, dependent: :destroy
+	belongs_to :auditorium, dependent: :destroy
 
 	def is_available?
 		sales.count < auditorium.capacity

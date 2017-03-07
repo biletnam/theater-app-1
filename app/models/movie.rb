@@ -6,7 +6,7 @@ class Movie < ApplicationRecord
 	# t.decimal :cost
 	
 	has_many :showtimes
-	has_many :auditoriums, through: :showtimes
+	has_many :auditoria, through: :showtimes
 	has_many :sales, through: :showtimes
 
 	validates :title, presence: :true

@@ -11,6 +11,8 @@ class ShowtimesController < ApplicationController
 
 	def new
 		@showtime = Showtime.new
+		@movies = Movie.all
+		@auditoria = Auditorium.all
 		render "new"
 	end
 
@@ -26,6 +28,8 @@ class ShowtimesController < ApplicationController
 
 	def edit
 		@showtime = Showtime.find_by(id: params[:id])
+		@movies = Movie.all
+		@auditoria = Auditorium.all
 		if @showtime
 			render "edit"
 		else

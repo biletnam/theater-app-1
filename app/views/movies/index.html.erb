@@ -1,3 +1,12 @@
+<% if @as_admin %>
+	<table>
+		<tr>
+	  	<td><%= link_to "Showtime Tasks", new_showtime_path %></td>
+	  	<td><%= link_to "Auditorium Tasks", auditoria_path %></td>
+		</tr>
+	</table>
+<% end %>
+
 <h1>Currently Playing:</h1>
 
 <div>

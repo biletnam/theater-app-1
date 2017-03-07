@@ -1,0 +1,21 @@
+<h1>Auditorium Tasks</h1>
+
+<h3><%= link_to "Create a New Auditorium", new_auditorium_path %></h3>
+
+<table>
+	<tr>
+		<th>Name</th>
+		<th>Capacity</th>
+		<th>Edit</th>
+		<th>Delete</th>
+	</tr>
+
+	<% @auditoria.each do |auditorium| %>
+		<tr>
+			<td><%= auditorium.name %></td>
+			<td><%= auditorium.capacity %></td>
+			<td><%= link_to "Edit", edit_auditorium_path(auditorium) %></td>
+			<td><%= link_to "Delete", auditorium_path(auditorium), :method => :delete %></td>
+		</tr>
+	<% end %>
+</table>
