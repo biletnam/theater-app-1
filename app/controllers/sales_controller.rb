@@ -62,11 +62,9 @@ class SalesController < ApplicationController
 		@sale = Sale.find_by(id: params[:id])
 		if @sale
 			@sale.destroy
-			@success_message = "Success!"
-			render "index"
+			redirect_to :sales
 		else
-			@errors = @sale.errors.full_messages
-			render "index"
+			redirect_to :root
 		end
 	end
 

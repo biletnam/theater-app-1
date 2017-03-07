@@ -12,8 +12,8 @@ class Customer < ApplicationRecord
 	validates :email, presence: true, length: { minimum: 4 }, confirmation: true
 	validates :email_confirmation, presence: true
 	validates :cc_number, presence: true, numericality: { only_integer: true }, length: { is: 16 }
-	validates :cc_expiration_month, presence: true, numericality: { only_integer: true }, length: { minimum: 1, maximum: 2 }
-	validates :cc_expiration_year, presence: true, numericality: { only_integer: true }, length: { is: 4 }
+	validates :cc_expiration_month, presence: true, numericality: { only_integer: true, greater_than: 0 }, length: { minimum: 1, maximum: 2 }
+	validates :cc_expiration_year, presence: true, numericality: { only_integer: true, greater_than: 0 }, length: { is: 4 }
 
 	validates_format_of :email, 
 											with: /\A(([^<>()\[\]\\.,;:\s@\"]+(\.[^<>()\[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))\z/,

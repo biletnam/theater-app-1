@@ -1,3 +1,13 @@
 // Place all the styles related to the sales controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#customer_cc_expiration_month {
+	display: block;
+	width: 50px;
+}
+
+#customer_cc_expiration_year {
+	display: inline;
+	width: 50px;
+}

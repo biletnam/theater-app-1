@@ -9,6 +9,12 @@ class Movie < ApplicationRecord
 	has_many :auditoriums, through: :showtimes
 	has_many :sales, through: :showtimes
 
+	validates :title, presence: :true
+	validates :director, presence: :true
+	validates :synopsis, presence: :true
+	validates :run_time, presence: :true
+	validates :cost, presence: :true, numericality: { greater_than: 0 }
+
 	def unique_showdates
 		showtimes.group(:date).map { |showtime| showtime }
 	end

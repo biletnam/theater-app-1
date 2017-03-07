@@ -5,10 +5,17 @@
 		<% if movie.showtimes.any? %>
 			<ul>
 				<h2><a href="movies/<%= movie.id %>"><%= movie.title %></a></h2>
+				<% if @as_admin %>
+					<div><%= link_to "Edit", edit_movie_path(movie) %> <%= link_to "Delete", movie_path(movie), :method => :delete %></div>
+				<% end %>
 				<p>Run Time: <%= movie.run_time %></p>
 				<% movie.unique_showdates.each do |showdate| %>
 					<li>
-						<h3><%= pretty_date(showdate.date) %></h3>
+						<h3><%= pretty_date(showdate.date) %>
+							<% if @as_admin %>
+								<%= link_to "Edit", edit_showtime_path(showdate) %> <%= link_to "Delete", showtime_path(showdate), :method => :delete %>
+							<% end %>
+						</h3>
 					</li>
 				<% end %>
 			</ul>

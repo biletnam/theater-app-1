@@ -14,13 +14,22 @@ html {
 	font-family: 'Pacifico', cursive;
 }
 
+th, td {
+	border: 1px solid black;
+	text-align: center;
+}
+
 h1, h2, h3, h4, li, p {
 	font-family: 'Baloo', cursive;
 	margin: 0;
 }
 
+input {
+	display: block;
+}
+
 #errors {
-	color: #EFE4B0;
+	color: #FFC90E;
 }
 
 #container {
@@ -105,4 +114,8 @@ h1, h2, h3, h4, li, p {
 #content {
 	padding: 90px 0 0 90px;
 	font-family: 'Pacifico', cursive;
+}
+
+.field_with_errors {
+	// display: inline-block;
 }

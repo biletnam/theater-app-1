@@ -1,13 +1,14 @@
+<h2>Ticket Purchase </h2>
 <%= render "/errors" %>
 
 <div>You are purchasing a ticket for the <%= pretty_date(@showtime.date) %>, <%= pretty_time(@showtime.time) %> showing of <%= @showtime.movie.title %>.</div>
 <div>The charge will be $<%= @showtime.movie.cost %>.  Please provide your information below:</div>
 
 <%= form_for :customer, url: :showtime_sales do |f| %>
-	Name: <br><%= f.text_field :name %><br>
-	Email: <br><%= f.text_field :email %><br>
-	Confirm Email: <br><%= f.text_field :email_confirmation %><br>
-	Credit Card (16 digits): <br><%= f.text_field :cc_number %><br>
-	Expiration Date: (MM / YYYY)<br><%= f.text_field :cc_expiration_month %> / <%= f.text_field :cc_expiration_year %><br>
+	<%= label(:movie, :name, "Name:") %><%= f.text_field :name %>
+	<%= label(:movie, :email, "Email:") %><%= f.text_field :email %>
+	<%= label(:movie, :email_confirmation, "Confirm Email:") %><%= f.text_field :email_confirmation %>
+	<%= label(:movie, :cc_number, "Credit Card (16 digits):") %><%= f.text_field :cc_number %>
+	<%= label(:movie, :cc_expiration_month, "Expiration Date (MM / YYYY):") %><%= f.text_field :cc_expiration_month %> / <%= f.text_field :cc_expiration_year %>
 	<%= f.submit 'Purchase' %>
 <% end %>
