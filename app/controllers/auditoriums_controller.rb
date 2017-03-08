@@ -1,2 +1,0 @@
-class AuditoriumsController < ApplicationController
-end

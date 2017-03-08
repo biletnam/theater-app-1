@@ -1,7 +1,7 @@
 <%= form_for @showtime do |f| %>
-	Film: <%= select "showtime", "movie_id", Movie.all.collect { |movie| [movie.title, movie.id] } %><br>
-	Auditorium: <%= select "showtime", "auditorium_id", Auditorium.all.collect { |auditorium| [auditorium.name, auditorium.id] } %><br>
-	Date: <%= date_select("showtime", "date" ) %><br>
-	Time: <%= time_select("showtime", "time", ampm: true ) %><br>
-	<%= f.submit 'Create' %>
-<% end %> 
+	Film: <%= select "showtime", "movie_id", @movies.collect { |movie| [movie.title, movie.id] } %>
+	Auditorium: <%= select "showtime", "auditorium_id", @auditoria.collect { |auditorium| [auditorium.name, auditorium.id] } %>
+	Date: <%= date_select("showtime", "date" ) %>
+	Time: <%= time_select("showtime", "time", ampm: true ) %>
+	<%= f.submit, id: "submit_btn" %>
+<% end %>

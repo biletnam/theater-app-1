@@ -8,7 +8,7 @@ class Sale < ApplicationRecord
 	has_one :auditorium, through: :showtime
 	has_one :movie, through: :showtime
 
-	validates :confirmation_no, presence: true, numericality: true
+	validates :confirmation_no, presence: true, numericality: { only_integer: true, greater_than: 0 }
 	validates :customer_id, presence: true
 	validates :showtime_id, presence: true
 end

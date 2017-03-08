@@ -1,1 +1,26 @@
-<p>Hi</p>
+<h1>Sales:</h1>
+
+<table>
+  <tr>
+    <th>Confirmation No.</th>
+    <th>Movie</th>
+    <th>Price</th>
+    <th>Auditorium</th>
+    <th>Date</th>
+    <th>Customer ID</th>
+    <th>Delete</th>
+  </tr>
+
+  <% @sales.joins(:showtime).order("showtimes.date desc, showtimes.time").each do |sale| %>
+  <tr>
+    <td><%= link_to sale.confirmation_no, sale %></td>
+    <td><%= link_to sale.movie.title, sale.movie %></td>
+    <td>$<%= sale.movie.cost %></td>
+    <td><%= sale.auditorium.name %></td>
+    <td><%= pretty_date(sale.showtime.date) %>, <%= pretty_time(sale.showtime.time) %></td>
+    <td><%= sale.customer.id %></td>
+    <td><%= link_to "Delete", sale_path(sale), :method => :delete %></td>
+  </tr>
+	<% end %>
+</table>
+</div>

@@ -11,10 +11,12 @@
   </head>
 
   <body>
+    <%= link_to root_path, id: "logo-link" do %>
     <div id="logo">
-      <h1 class="baloo">Popcorn Cinema</h1>
-      <h2 class="pacifico">Where Everything Is A Little Corny</h2>  
+      <h1 id="title" class="baloo">Popcorn Cinema</h1>
+      <h2 id="tagline" class="pacifico">Where Everything Is A Little Corny</h2>  
     </div>
+    <% end -%>
     <div id="container">
 
       <div id="frame">
@@ -28,6 +30,7 @@
         <div id="box-bottom-right" class="frame-element"></div>
 
         <div id="content">
+          <nav><%= link_to "Home", movies_path %> | <%= link_to "Admin Tasks", movies_admin_path %></nav>
           <%= yield %>
         </div>
 

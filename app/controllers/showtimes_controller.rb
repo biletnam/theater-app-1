@@ -1,9 +1,5 @@
 class ShowtimesController < ApplicationController
 
-	def index
-		@movies = Movie.all
-	end
-
 	def show
 		@showtime = Showtime.find_by(id: params[:id])
 		if @showtime
@@ -15,6 +11,8 @@ class ShowtimesController < ApplicationController
 
 	def new
 		@showtime = Showtime.new
+		@movies = Movie.all
+		@auditoria = Auditorium.all
 		render "new"
 	end
 
@@ -30,6 +28,8 @@ class ShowtimesController < ApplicationController
 
 	def edit
 		@showtime = Showtime.find_by(id: params[:id])
+		@movies = Movie.all
+		@auditoria = Auditorium.all
 		if @showtime
 			render "edit"
 		else
@@ -47,7 +47,7 @@ class ShowtimesController < ApplicationController
 				render "edit"
 			end
 		else
-			redirect_to :showtimes
+			redirect_to :movies
 		end
 	end
 
@@ -56,7 +56,7 @@ class ShowtimesController < ApplicationController
 		if @showtime
 			@showtime.destroy
 		end
-		redirect_to :showtimes
+		redirect_to :movies
 	end
 
 

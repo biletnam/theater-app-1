@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class AuditoriaControllerTest < ActionDispatch::IntegrationTest
+class TicketMailerTest < ActionMailer::TestCase
   # test "the truth" do
   #   assert true
   # end

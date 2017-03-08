@@ -23,6 +23,7 @@ class SalesController < ApplicationController
 					@sale.showtime = @showtime
 					@sale.customer = @customer
 					if @sale.save
+						TicketMailer.ticket_email(@customer, @sale).deliver_now
 						redirect_to @sale
 					else
 						# since sale can't be made
@@ -62,11 +63,9 @@ class SalesController < ApplicationController
 		@sale = Sale.find_by(id: params[:id])
 		if @sale
 			@sale.destroy
-			@success_message = "Success!"
-			render "index"
+			redirect_to :sales
 		else
-			@errors = @sale.errors.full_messages
-			render "index"
+			redirect_to :root
 		end
 	end
 

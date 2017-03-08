@@ -1,0 +1,8 @@
+<%= form_for @movie do |f| %>
+	<%= label(:movie, :title, "Title:") %><%= f.text_field :title -%>
+	<%= label(:movie, :director, "Director:") %><%= f.text_field :director -%>
+	<%= label(:movie, :synopsis, "Synopsis:") %><%= f.text_field :synopsis -%>
+	<%= label(:movie, :run_time, "Run Time:") %><%= f.text_field :run_time -%>
+	<%= label(:movie, :cost, "Cost:") %><%= f.text_field :cost -%>
+	<%= f.submit, id: "submit_btn" -%>
+<% end %>
