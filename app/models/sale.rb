@@ -11,4 +11,14 @@ class Sale < ApplicationRecord
 	validates :confirmation_no, presence: true, numericality: { only_integer: true, greater_than: 0 }
 	validates :customer_id, presence: true, numericality: { only_integer: true, greater_than: 0 }
 	validates :showtime_id, presence: true, numericality: { only_integer: true, greater_than: 0 }
+
+	validate :available_seats
+
+	private
+  def available_seats
+		if showtime.sales.count >= auditorium.capacity
+			errors.add(:confirmation_no, "cannot be issued.  No seating available for this showtime.")	
+		end
+	end
+
 end
