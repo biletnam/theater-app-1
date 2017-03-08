@@ -23,7 +23,7 @@ class SalesController < ApplicationController
 					@sale.showtime = @showtime
 					@sale.customer = @customer
 					if @sale.save
-						# TicketMailer.ticket_email(@customer, @sale).deliver_now
+						TicketMailer.ticket_email(@customer, @sale).deliver_now
 						redirect_to @sale
 					else
 						# since sale can't be made
