@@ -27,6 +27,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'faker'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem 'sendgrid-ruby'
 
 group :production do
   gem 'pg'
