@@ -2,7 +2,7 @@ Popcorn Cinema - Your tickets
 
   Thank you for your $<%= @sale.movie.cost %> purchase, <%= @sale.customer.name %>!
 
-  You are seeing <%= @sale.movie.title %>, directed by <%= @sale.movie.director %>, in <%= @sale.auditorium.name %> at <%= pretty_time(@sale.showtime.time) %> on <%= pretty_date(@sale.showtime.date) %>.
+  You are seeing <%= @sale.movie.title %>, directed by <%= @sale.movie.director %>, in the <%= @sale.auditorium.name %> auditorium at <%= @sale.showtime.time.strftime("%l:%M %p") %> on <%= @sale.showtime.date.strftime("%a, %b %e") %>.
 
   Your confirmation number is <%= @sale.confirmation_no %>.  Please print this email and bring it with you to the theater for admittance.
   
