@@ -1,11 +1,9 @@
 <% if @as_admin %>
-	<table id="admin_tasks">
-		<tr>
-			<td><%= link_to "Movie Tasks", new_movie_path %></td>
-	  	<td><%= link_to "Showtime Tasks", new_showtime_path %></td>
-	  	<td><%= link_to "Auditorium Tasks", auditoria_path %></td>
-		</tr>
-	</table>
+	<div id="admin_tasks">
+			<div><%= link_to "Movie Tasks", new_movie_path %></div>
+	  	<div><%= link_to "Showtime Tasks", new_showtime_path %></div>
+	  	<div><%= link_to "Auditorium Tasks", auditoria_path %></div>
+	</div>
 <% end %>
 
 <h1>Currently Playing:</h1>

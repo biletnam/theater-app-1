@@ -25,8 +25,8 @@ class Showtime < ApplicationRecord
 		sales.count * movie.cost
 	end
 
-	private
 
+	private
 	def compose_date()
 		Date
 	end
