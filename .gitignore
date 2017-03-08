@@ -23,3 +23,6 @@
 # Ignore project notes
 NOTES.md
 schema.md
+
+# Ignore local configuration
+/config/local_env.yml

@@ -1,5 +1,5 @@
 <% if @as_admin %>
-	<table>
+	<table id="admin_tasks">
 		<tr>
 			<td><%= link_to "Movie Tasks", new_movie_path %></td>
 	  	<td><%= link_to "Showtime Tasks", new_showtime_path %></td>
@@ -12,12 +12,15 @@
 
 <div>
 	<% @movies.each do |movie| %>
+
 		<% if movie.showtimes.any? %>
 			<ul>
 				<h2><a href="movies/<%= movie.id %>"><%= movie.title %></a></h2>
+	
 				<% if @as_admin %>
 					<div><%= link_to "Edit", edit_movie_path(movie) %> <%= link_to "Delete", movie_path(movie), :method => :delete %></div>
 				<% end %>
+	
 				<p>Run Time: <%= movie.run_time %></p>
 				<% movie.unique_showdates.each do |showdate| %>
 					<li>
@@ -28,6 +31,7 @@
 						</h3>
 					</li>
 				<% end %>
+			
 			</ul>
 		<% end %>
 	<% end %>

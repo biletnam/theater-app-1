@@ -13,3 +13,5 @@ module TheaterApp
     # -- all .rb files in that directory are automatically loaded.
   end
 end
+
+ActionMailer::Base.delivery_method = :smtp
