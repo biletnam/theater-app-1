@@ -32,10 +32,39 @@ h1, h2, h3, h4, li, p {
 
 h1 {
 	font-size: 40px;
+	@media (max-width: 750px) {
+    font-size: 16px;
+  }
 }
 
 h2 {
 	font-size: 30px;
+	@media (max-width: 750px) {
+    font-size: 14px;
+  }
+}
+
+h3 {
+		@media (max-width: 750px) {
+    font-size: 10px;
+
+  }
+}
+
+nav {
+	width: 90%;
+	text-align: center;
+	font-size: 40px;
+	@media (max-width: 900px) {
+    font-size: 20px;
+  }
+}
+
+nav > a {
+	margin: 0px 40px;
+	@media (max-width: 900px) {
+    margin: 0px 20px;
+  }
 }
 
 input {
@@ -56,6 +85,12 @@ input {
 	margin: 50px auto;
 	background-repeat: none;
 	background-image: url('https://s3.us-east-2.amazonaws.com/lpltheaterapp/billboard.png');
+
+	@media (max-width: 750px) {
+		width: 400px;
+		height: 123px;
+		background-size: 400px 123px;
+  }
 }
 
 #title {
@@ -63,6 +98,9 @@ input {
 	font-size: 60px;
 	text-align: center;
 	color: black;
+	@media (max-width: 750px) {
+    font-size: 28px;
+  }
 }
 
 #tagline {
@@ -153,16 +191,6 @@ input {
 #content {
 	padding: 90px 0 0 90px;
 	font-family: 'Pacifico', cursive;
-}
-
-nav {
-	width: auto;
-	text-align: center;
-	font-size: 40px;
-}
-
-nav > a {
-	margin: 0px 40px;
 }
 
 .field_with_errors {
