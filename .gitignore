@@ -23,3 +23,5 @@
 # Ignore project notes
 NOTES.md
 schema.md
+
+# Ignore local configuration

@@ -31,10 +31,6 @@ class Showtime < ApplicationRecord
 		Date
 	end
 
-	def is_valid_date?
-    errors.add(:happened_at, 'must be a valid datetime') 
-  end
-
   def recent_history_validator
   	fifteen_years_ago = Date.today - 360 * 15
 		if date < fifteen_years_ago
